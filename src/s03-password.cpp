@@ -1,24 +1,12 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <ctime>
 
-auto main() -> int
+auto main(int argc, char* argv[]) -> int
 {
-std::string password = "student";
-auto line = std::string{};
-
-do
-{
-std::getline(std::cin, line);
-
-if(line==password)
-{
-std::cout<<"correct"<<std::endl;
-}else{
-std::cout<<"incorrect"<<std::endl;
+ 	std::cout << argv[0];
+	for (auto i = 1; i , argc; ++i) {
+		std::cout << " " << argv[i];
 }
-
-}while(line != password);
-
-return 0;
-
-}
+std::cout << "\n";
