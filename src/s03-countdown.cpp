@@ -1,31 +1,46 @@
 #include <iostream>
+#include <string>
 #include <cstdlib>
 #include <unistd.h>
 
-
-using namespace std;
-
-int number, guess;
-
-int main()
+auto main (int argc, char* argv[]) -> int
 {
-	srand(time(NULL));
-	number = rand()%100+1;
-	cout << number << endl;
-
-	while(guess!=number)
+	if(argc <= 1)
 	{
-		cout <<  "guess:";
-		cin >> guess;
-
-	if(guess=number)
-	  cout << "just right!" << endl;
-	else if(guess<number)
-	  cout << "too small!"<< endl;
-	else if(guess>number)
-	  cout << "too big!" << endl;
+		std::cout << "brak podanego argumentu \n";
+		return 1;
+	}else if (argc > 2)
+	{
+		std::cout <<"za duzo agrumentow \n";
+		return 0;
 	}
 
 
+	int number;
+	try
+	{
+	number = std::stoi(argv[1]);
+	}
+
+	catch(const std::exception& e)
+	{
+		std::cout << "to nie jest liczba";
+		return 1;
+	}
+
+	if(number > 0)
+	{
+		for (int i = number; i >= 0; i--)
+		{
+		std::cout << i << "\n";
+		sleep(1);
+		}
+	}else{
+		for (int i = number; i<= 0;i++)
+		{
+		std::cout << i << "\n";
+		sleep(1);
+		}
+	}
 return 0;
 }
